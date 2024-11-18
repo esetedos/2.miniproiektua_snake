@@ -32,9 +32,12 @@ function isWithin(a, b, c) {
 
 // Countdown timer (in seconds)
 var countdown = 30;
+var time = 0;
+
 
 // ID to track the setTimeout
 var id = null;
+var timeLapse = null;
 var snakeSpeedCountdown = null;
 
 // Listen for keydown events
@@ -94,6 +97,9 @@ function startGame() {
   id = setInterval(function() {
     countdown--;
   }, 1000)
+  timeLapse = setInterval(function() {
+    time++;
+  }, 500)
   // Stop listening for click events
   canvas.removeEventListener('click', startGame);
   // Put the target at a random starting point
@@ -132,21 +138,29 @@ function draw() {
 //   console.log(canvas.width)  600
 //   console.log(canvas.height) 400
   // Move the square
-  snakeSpeedCountdown = setInterval(function() {
+  // snakeSpeedCountdown = setInterval(function() {
+  console.log(time)
+  if(time>0){
     if (down) {
-        y += speed;
-      }
-      else if (up) {
-        y -= speed;
-      }
-      else if (right) {
-        x += speed;
-      }
-      else if (left) {
-        x -= speed;
-      }
-  }, 2000)
-  snakeSpeedCountdown = null;
+      y += speed;
+      time = 0;
+    }
+    else if (up) {
+      y -= speed;
+      time = 0;
+    }
+    else if (right) {
+      x += speed;
+      time = 0;
+    }
+    else if (left) {
+      x -= speed;
+      time = 0;
+    }
+  }
+    
+  // }, 2000)
+  // snakeSpeedCountdown = null;
    
     
   
