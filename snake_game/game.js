@@ -11,7 +11,7 @@ var score = 0;
 // Properties for your square
 var x = 50; // X position
 var y = 100; // Y position
-var speed = 20; // Distance to move each frame
+var speed = 30; // Distance to move each frame
 var sideLength = 50; // Length of each side of the square
 
 // FLags to track which keys are pressed
@@ -110,7 +110,7 @@ function startGame() {
   }, 1000)
   speedLapse = setInterval(function() {
     speedTimer++;
-  }, 500)
+  }, 200)
 
   //start moving to right
   right = true;
@@ -193,6 +193,7 @@ function draw() {
     x = canvas.width - sideLength;
   }
   
+  //Collisions
   // Collide with the target
   if (isWithin(targetX, x, x + sideLength) || isWithin(targetX + targetLength, x, x + sideLength)) { // X
     if (isWithin(targetY, y, y + sideLength) || isWithin(targetY + targetLength, y, y + sideLength)) { // Y
