@@ -44,36 +44,48 @@ canvas.addEventListener('keydown', function(event) {
   event.preventDefault();
   console.log(event.key, event.keyCode);
   if (event.keyCode === 40) { // DOWN
+    allFalse();
     down = true;
   }
   if (event.keyCode === 38) { // UP
+    allFalse();
     up = true;
   }
   if (event.keyCode === 37) { // LEFT
+    allFalse();
     left = true;
   }
   if (event.keyCode === 39) { // RIGHT
+    allFalse();
     right = true;
   }
 });
 
+//so all directions get disabled
+function allFalse(){
+  down = false;
+  up = false;
+  left = false;
+  right = false;
+}
+
 // Listen for keyup events
-canvas.addEventListener('keyup', function(event) {
-  event.preventDefault();
-  console.log(event.key, event.keyCode);
-  if (event.keyCode === 40) { // DOWN
-    down = false;
-  }
-  if (event.keyCode === 38) { // UP
-    up = false;
-  }
-  if (event.keyCode === 37) { // LEFT
-    left = false;
-  }
-  if (event.keyCode === 39) { // RIGHT
-    right = false;
-  }
-});
+// canvas.addEventListener('keyup', function(event) {
+//   event.preventDefault();
+//   console.log(event.key, event.keyCode);
+//   if (event.keyCode === 40) { // DOWN
+//     down = false;
+//   }
+//   if (event.keyCode === 38) { // UP
+//     up = false;
+//   }
+//   if (event.keyCode === 37) { // LEFT
+//     left = false;
+//   }
+//   if (event.keyCode === 39) { // RIGHT
+//     right = false;
+//   }
+// });
 
 // Show the start menu
 function menu() {
@@ -99,6 +111,10 @@ function startGame() {
   speedLapse = setInterval(function() {
     speedTimer++;
   }, 500)
+
+  //start moving to right
+  right = true;
+
   // Stop listening for click events
   canvas.removeEventListener('click', startGame);
   // Put the target at a random starting point
@@ -157,6 +173,7 @@ function draw() {
       speedTimer = 0;
     }
   }
+
     
 
    
