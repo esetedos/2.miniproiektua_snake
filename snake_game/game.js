@@ -106,7 +106,7 @@ function menu() {
 function startGame() {
 	// Reduce the countdown timer ever second
   id = setInterval(function() {
-    countdown--;
+    // countdown--;
   }, 1000)
   speedLapse = setInterval(function() {
     speedTimer++;
@@ -137,8 +137,8 @@ function endGame() {
 
 // Move the target square to a random position
 function moveTarget() {
-  targetX = Math.round(Math.random() * canvas.width - targetLength);
-  targetY = Math.round(Math.random() * canvas.height - targetLength)
+  targetX = Math.round(Math.random() * (canvas.width - targetLength));
+  targetY = Math.round(Math.random() * (canvas.height - targetLength));
 }
 
 // Clear the canvas
@@ -154,7 +154,7 @@ function draw() {
 //   console.log(canvas.height) 400
   // Move the square
 
-  console.log(speedTimer)
+  // console.log(speedTimer)
   if(speedTimer>0){
     if (down) {
       y += speed;
