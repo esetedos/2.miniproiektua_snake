@@ -32,13 +32,12 @@ function isWithin(a, b, c) {
 
 // Countdown timer (in seconds)
 var countdown = 30;
-var time = 0;
+var speedTimer = 0;
 
 
 // ID to track the setTimeout
 var id = null;
-var timeLapse = null;
-var snakeSpeedCountdown = null;
+var speedLapse = null;
 
 // Listen for keydown events
 canvas.addEventListener('keydown', function(event) {
@@ -97,8 +96,8 @@ function startGame() {
   id = setInterval(function() {
     countdown--;
   }, 1000)
-  timeLapse = setInterval(function() {
-    time++;
+  speedLapse = setInterval(function() {
+    speedTimer++;
   }, 500)
   // Stop listening for click events
   canvas.removeEventListener('click', startGame);
@@ -138,29 +137,28 @@ function draw() {
 //   console.log(canvas.width)  600
 //   console.log(canvas.height) 400
   // Move the square
-  // snakeSpeedCountdown = setInterval(function() {
-  console.log(time)
-  if(time>0){
+
+  console.log(speedTimer)
+  if(speedTimer>0){
     if (down) {
       y += speed;
-      time = 0;
+      speedTimer = 0;
     }
     else if (up) {
       y -= speed;
-      time = 0;
+      speedTimer = 0;
     }
     else if (right) {
       x += speed;
-      time = 0;
+      speedTimer = 0;
     }
     else if (left) {
       x -= speed;
-      time = 0;
+      speedTimer = 0;
     }
   }
     
-  // }, 2000)
-  // snakeSpeedCountdown = null;
+
    
     
   
