@@ -39,6 +39,9 @@ var speedTimer = 0;
 var id = null;
 var speedLapse = null;
 
+//array de posiciones de la cola
+const snakePosition = [[x, y], [3, 6]];
+
 // Listen for keydown events
 canvas.addEventListener('keydown', function(event) {
   event.preventDefault();
@@ -141,6 +144,16 @@ function moveTarget() {
   targetY = Math.round(Math.random() * (canvas.height - targetLength));
 }
 
+//actualiza las posiciones de la cola
+function updateSnake(){
+  for(let i = snakePosition.length-1; i > 0; i--){
+    snakePosition[i][0] = snakePosition[i-1][0];
+    snakePosition[i][1] = snakePosition[i-1][1];
+  }
+  snakePosition[0][0] = x;
+  snakePosition[0][1] = y;
+}
+
 // Clear the canvas
 function erase() {
   context.fillStyle = '#FFFFFF';
@@ -156,22 +169,23 @@ function draw() {
 
   // console.log(speedTimer)
   if(speedTimer>0){
-    if (down) {
-      y += speed;
+    if(down || up || right || left){
+      if (down) {
+        y += speed;
+      }
+      else if (up) {
+        y -= speed;
+      }
+      else if (right) {
+        x += speed;
+      }
+      else if (left) {
+        x -= speed;
+      }
       speedTimer = 0;
+      updateSnake();
     }
-    else if (up) {
-      y -= speed;
-      speedTimer = 0;
-    }
-    else if (right) {
-      x += speed;
-      speedTimer = 0;
-    }
-    else if (left) {
-      x -= speed;
-      speedTimer = 0;
-    }
+   
   }
 
     
@@ -206,6 +220,7 @@ function draw() {
   // Draw the square
   context.fillStyle = '#FF0000';
   context.fillRect(x, y, sideLength, sideLength);
+  console.log("update snake")
   // Draw the target 
   context.fillStyle = '#00FF00';
   context.fillRect(targetX, targetY, targetLength, targetLength);

@@ -10,3 +10,9 @@ Desglose de tareas:
 -	Creación de cubo extra
 -	Movimiento del cubo extra
 -	Bloqueo de una de las teclas (para no chocar con la cola. Por ejm. Si se mueve hacia la derecha que no pueda moverse hacia la izq)
+-   posicion de los elementos en cuadricula (que todos los elementos encajen como en un talero)
+
+
+busquedas:
+- Math.random: para saber si incluye el 1 o no
+- como crear un array en js
