@@ -8,7 +8,7 @@ Desglose de tareas:
 -	Colisión de ambos elementos x
 -	Reposicionar alimento x
 -	Creación de cubo extra
--	Movimiento del cubo extra
+-	Movimiento del cubo extra x
 -	Bloqueo de una de las teclas (para no chocar con la cola. Por ejm. Si se mueve hacia la derecha que no pueda moverse hacia la izq)
 -   posicion de los elementos en cuadricula (que todos los elementos encajen como en un talero)
 
@@ -16,7 +16,7 @@ Desglose de tareas:
 busquedas:
 - Math.random: para saber si incluye el 1 o no
 - como crear un array en js
-
+- git commit --amend como usar
 
 
 
