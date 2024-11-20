@@ -47,22 +47,46 @@ const snakePosition = [[x, y], [3, 6],[14, 9]];
 canvas.addEventListener('keydown', function(event) {
   event.preventDefault();
   console.log(event.key, event.keyCode);
-  if (event.keyCode === 40) { // DOWN
-    allFalse();
-    down = true;
+  switch(event.keyCode){
+    case 40:    // DOWN
+      allFalse();
+      down = true;
+      break;
+
+    case 38:   // UP
+      allFalse();
+      up = true;
+      break;
+
+    case 37:   // LEFT
+      allFalse();
+      left = true;
+      break;
+
+    case 39:  // RIGHT
+      allFalse();
+      right = true;
+      break;
+
+    default:
+      break;
   }
-  if (event.keyCode === 38) { // UP
-    allFalse();
-    up = true;
-  }
-  if (event.keyCode === 37) { // LEFT
-    allFalse();
-    left = true;
-  }
-  if (event.keyCode === 39) { // RIGHT
-    allFalse();
-    right = true;
-  }
+  // if (event.keyCode === 40) { // DOWN
+  //   allFalse();
+  //   down = true;
+  // }
+  // if (event.keyCode === 38) { // UP
+  //   allFalse();
+  //   up = true;
+  // }
+  // if (event.keyCode === 37) { // LEFT
+  //   allFalse();
+  //   left = true;
+  // }
+  // if (event.keyCode === 39) { // RIGHT
+  //   allFalse();
+  //   right = true;
+  // }
 });
 
 //so all directions get disabled
