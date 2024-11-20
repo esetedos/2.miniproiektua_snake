@@ -11,8 +11,9 @@ var score = 0;
 // Properties for your square
 var x = 50; // X position
 var y = 100; // Y position
-var speed = 30; // Distance to move each frame
 var sideLength = 50; // Length of each side of the square
+var speed = sideLength; // Distance to move each frame
+
 
 // FLags to track which keys are pressed
 var down = false;
@@ -40,7 +41,7 @@ var id = null;
 var speedLapse = null;
 
 //array de posiciones de la cola
-const snakePosition = [[x, y], [3, 6]];
+const snakePosition = [[x, y], [3, 6],[14, 9]];
 
 // Listen for keydown events
 canvas.addEventListener('keydown', function(event) {
@@ -113,7 +114,7 @@ function startGame() {
   }, 1000)
   speedLapse = setInterval(function() {
     speedTimer++;
-  }, 200)
+  }, 700)
 
   //start moving to right
   right = true;
@@ -158,6 +159,14 @@ function updateSnake(){
 function erase() {
   context.fillStyle = '#FFFFFF';
   context.fillRect(0, 0, 600, 400);
+}
+
+//Draw all Squares in position
+function drawSquares(){
+  for(let i = 0; i < snakePosition.length ; i++){
+    context.fillStyle = '#FF0000';
+    context.fillRect(snakePosition[i][0], snakePosition[i][1], sideLength, sideLength);
+  }
 }
 
 // The main draw loop
@@ -218,8 +227,8 @@ function draw() {
     }
   }
   // Draw the square
-  context.fillStyle = '#FF0000';
-  context.fillRect(x, y, sideLength, sideLength);
+  drawSquares();
+
   console.log("update snake")
   // Draw the target 
   context.fillStyle = '#00FF00';
