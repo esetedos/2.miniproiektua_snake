@@ -16,3 +16,19 @@ Desglose de tareas:
 busquedas:
 - Math.random: para saber si incluye el 1 o no
 - como crear un array en js
+
+
+
+
+Azala
+Aurkibidea
+Sarrera
+Helburua
+Garapena
+--> Galdera zerrenda (Promtak)
+--> Js
+--> HTML canvas
+Ondorioak
+Etorkizuneko ildoak
+
+
