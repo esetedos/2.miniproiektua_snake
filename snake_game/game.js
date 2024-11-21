@@ -41,7 +41,7 @@ var id = null;
 var speedLapse = null;
 
 //array de posiciones de la cola
-const snakePosition = [[x, y], [3, 6],[14, 9]];
+const snakePosition = [[x, y]];
 
 // Listen for keydown events
 canvas.addEventListener('keydown', function(event) {
@@ -193,6 +193,11 @@ function drawSquares(){
   }
 }
 
+function addTail(){
+  snakePosition.push([-100, -100]);
+  // updateSnake();
+}
+
 // The main draw loop
 function draw() {
   erase();
@@ -248,6 +253,9 @@ function draw() {
       moveTarget();
       // Increase the score
       score++;
+
+      //añadir cola
+      addTail();
     }
   }
   // Draw the square
